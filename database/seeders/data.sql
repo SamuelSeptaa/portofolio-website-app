@@ -19,6 +19,9 @@ DELETE FROM `failed_jobs`;
 
 -- Dumping data for table portofolio.images_portofolios: ~0 rows (approximately)
 DELETE FROM `images_portofolios`;
+INSERT INTO `images_portofolios` (`id`, `portofolio_id`, `image_url`, `created_at`, `updated_at`) VALUES
+	(1, 1, 'Screenshot (2).png', '2023-08-24 00:38:04', '2023-08-24 00:38:04'),
+	(2, 1, 'Screenshot (3).png', '2023-08-24 00:38:04', '2023-08-24 00:38:04');
 
 -- Dumping data for table portofolio.migrations: ~9 rows (approximately)
 DELETE FROM `migrations`;
@@ -42,10 +45,12 @@ DELETE FROM `personal_access_tokens`;
 -- Dumping data for table portofolio.portofolios: ~0 rows (approximately)
 DELETE FROM `portofolios`;
 INSERT INTO `portofolios` (`id`, `title`, `short_body`, `description`, `url`, `start_date`, `end_date`, `thumbnail_url`, `created_at`, `updated_at`) VALUES
-	(1, 'Community Service Performance Evaluation System', 'Community Service Performance Evaluation System', '<p>Community Service Performance Evaluation System</p>', NULL, NULL, NULL, '8GYMDIftsbG3T753Ts0uqbilLbsrRr-metaU2NyZWVuc2hvdCAoMikucG5n-.png', '2023-08-23 20:20:52', '2023-08-23 20:20:52');
+	(1, 'Community Service Performance Evaluation System', 'Community Service Performance Evaluation System', '<p>Community Service Performance Evaluation System</p>', NULL, '2021-09-02', '2021-12-08', 'Screenshot (1).png', '2023-08-24 00:38:04', '2023-08-24 00:38:04');
 
--- Dumping data for table portofolio.profiles: ~0 rows (approximately)
+-- Dumping data for table portofolio.profiles: ~1 rows (approximately)
 DELETE FROM `profiles`;
+INSERT INTO `profiles` (`id`, `user_id`, `email`, `phone`, `description`, `created_at`, `updated_at`) VALUES
+	(1, 1, 'samuelseptaa@gmail.com', '082252961156', '<p>samuelseptaa@gmail.com</p>', NULL, NULL);
 
 -- Dumping data for table portofolio.services: ~1 rows (approximately)
 DELETE FROM `services`;
@@ -62,7 +67,7 @@ INSERT INTO `service_benefit_lists` (`id`, `service_id`, `benefit`, `created_at`
 -- Dumping data for table portofolio.users: ~1 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'samuelsepta', 'samuelseptaa@gmail.com', NULL, '$2y$10$JN1sapEne0CMnr3NPoUa3uX5/7vTSwFq.YFwfY5ugD10/5oyDEe9W', 'kEZgnRr3VZ13Bc1mxjcFoZqFrF7AztBKRI71gwFkMeg0R3RqIfWPuuIaKCm4', '2023-08-23 20:07:04', '2023-08-23 20:07:04');
+	(1, 'Samuel Septa Munthe', 'samuelseptaa@gmail.com', NULL, '$2y$10$14RuUejvIQaEzucBZ55gPe3Lf5wjDgdTx6ose08ZBapGWjbursByW', 'NRJhVHm2uZW53q7vinrbi2knnqxPBfPw1NvWUhVzrB1C6AFDUU0yrTIIkOEZ', '2023-08-23 20:07:04', '2023-08-24 00:27:50');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
