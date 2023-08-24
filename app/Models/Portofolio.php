@@ -11,4 +11,9 @@ class Portofolio extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function images_portofolio()
+    {
+        return $this->hasMany(ImagesPortofolio::class);
+    }
 }

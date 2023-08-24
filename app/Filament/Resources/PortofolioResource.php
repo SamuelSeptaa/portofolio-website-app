@@ -45,6 +45,7 @@ class PortofolioResource extends Resource
                             ]),
 
                         FileUpload::make('thumbnail_url')->image()->maxSize(2048)->required()->imageResizeMode('cover')
+                            ->preserveFilenames()
                             ->imageCropAspectRatio('16:9')
                             ->imageResizeTargetWidth('1920')
                             ->imageResizeTargetHeight('1080'),
@@ -53,7 +54,15 @@ class PortofolioResource extends Resource
                                 DatePicker::make('start_date'),
                                 DatePicker::make('end_date')->after('start_date')->nullable(),
                             ]),
-
+                        Forms\Components\Repeater::make('images_portofolio')
+                            ->relationship()
+                            ->schema([
+                                FileUpload::make('image_url')->label('Image')->image()->maxSize(2048)->required()->imageResizeMode('cover')
+                                    ->preserveFilenames()
+                                    ->imageCropAspectRatio('16:9')
+                                    ->imageResizeTargetWidth('1920')
+                                    ->imageResizeTargetHeight('1080')
+                            ])
                     ])
 
             ]);
