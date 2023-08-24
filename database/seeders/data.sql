@@ -17,7 +17,7 @@
 -- Dumping data for table portofolio.failed_jobs: ~0 rows (approximately)
 DELETE FROM `failed_jobs`;
 
--- Dumping data for table portofolio.images_portofolios: ~0 rows (approximately)
+-- Dumping data for table portofolio.images_portofolios: ~2 rows (approximately)
 DELETE FROM `images_portofolios`;
 INSERT INTO `images_portofolios` (`id`, `portofolio_id`, `image_url`, `created_at`, `updated_at`) VALUES
 	(1, 1, 'Screenshot (2).png', '2023-08-24 00:38:04', '2023-08-24 00:38:04'),
@@ -42,32 +42,35 @@ DELETE FROM `password_resets`;
 -- Dumping data for table portofolio.personal_access_tokens: ~0 rows (approximately)
 DELETE FROM `personal_access_tokens`;
 
--- Dumping data for table portofolio.portofolios: ~0 rows (approximately)
+-- Dumping data for table portofolio.portofolios: ~1 rows (approximately)
 DELETE FROM `portofolios`;
 INSERT INTO `portofolios` (`id`, `title`, `short_body`, `description`, `url`, `start_date`, `end_date`, `thumbnail_url`, `created_at`, `updated_at`) VALUES
 	(1, 'Community Service Performance Evaluation System', 'Community Service Performance Evaluation System', '<p>Community Service Performance Evaluation System</p>', NULL, '2021-09-02', '2021-12-08', 'Screenshot (1).png', '2023-08-24 00:38:04', '2023-08-24 00:38:04');
 
 -- Dumping data for table portofolio.profiles: ~1 rows (approximately)
 DELETE FROM `profiles`;
-INSERT INTO `profiles` (`id`, `user_id`, `email`, `phone`, `description`, `created_at`, `updated_at`) VALUES
-	(1, 1, 'samuelseptaa@gmail.com', '082252961156', '<p>samuelseptaa@gmail.com</p>', NULL, NULL);
+INSERT INTO `profiles` (`id`, `user_id`, `email`, `image`, `phone`, `description`, `cv_url`, `created_at`, `updated_at`) VALUES
+	(1, 1, 'samuelseptaa@gmail.com', 'red-bg.jpg', '082252961156', '<p>samuelseptaa@gmail.com</p>', 'http://127.0.0.1:8000/#home', NULL, NULL);
 
 -- Dumping data for table portofolio.services: ~1 rows (approximately)
 DELETE FROM `services`;
 INSERT INTO `services` (`id`, `title`, `price_start`, `price_end`, `created_at`, `updated_at`) VALUES
-	(2, 'a', 1.00, 2.00, '2023-08-23 21:25:28', '2023-08-23 21:25:28');
+	(2, 'Bimbingan Belajar Program Profesional', 500000, 1000000, '2023-08-23 21:25:28', '2023-08-24 03:06:08');
 
--- Dumping data for table portofolio.service_benefit_lists: ~3 rows (approximately)
+-- Dumping data for table portofolio.service_benefit_lists: ~6 rows (approximately)
 DELETE FROM `service_benefit_lists`;
 INSERT INTO `service_benefit_lists` (`id`, `service_id`, `benefit`, `created_at`, `updated_at`) VALUES
-	(1, 2, 'a', '2023-08-23 21:25:28', '2023-08-23 21:25:28'),
-	(2, 2, 'b', '2023-08-23 21:25:48', '2023-08-23 21:25:48'),
-	(3, 2, 'c', '2023-08-23 21:25:48', '2023-08-23 21:25:48');
+	(1, 2, 'Gratis Bimbingan Program', '2023-08-23 21:25:28', '2023-08-24 03:03:40'),
+	(2, 2, 'Gratis Bimbingan Revisi Program', '2023-08-23 21:25:48', '2023-08-24 03:03:40'),
+	(3, 2, 'Gratis Bimbingan Laporan Akhir', '2023-08-23 21:25:48', '2023-08-24 03:03:40'),
+	(7, 2, 'Termasuk Pembuatan Use Case dan Flowchart', '2023-08-24 03:04:35', '2023-08-24 03:04:35'),
+	(8, 2, 'Termasuk Pembuatan Class Diagram', '2023-08-24 03:04:35', '2023-08-24 03:04:35'),
+	(9, 2, 'Dibuat Dengan CodeIgniter 3', '2023-08-24 03:04:35', '2023-08-24 03:04:35');
 
 -- Dumping data for table portofolio.users: ~1 rows (approximately)
 DELETE FROM `users`;
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-	(1, 'Samuel Septa Munthe', 'samuelseptaa@gmail.com', NULL, '$2y$10$14RuUejvIQaEzucBZ55gPe3Lf5wjDgdTx6ose08ZBapGWjbursByW', 'NRJhVHm2uZW53q7vinrbi2knnqxPBfPw1NvWUhVzrB1C6AFDUU0yrTIIkOEZ', '2023-08-23 20:07:04', '2023-08-24 00:27:50');
+	(1, 'Samuel Septa Munthe', 'samuelseptaa@gmail.com', NULL, '$2y$10$14RuUejvIQaEzucBZ55gPe3Lf5wjDgdTx6ose08ZBapGWjbursByW', 'NRJhVHm2uZW53q7vinrbi2knnqxPBfPw1NvWUhVzrB1C6AFDUU0yrTIIkOEZ', '2023-08-23 20:07:04', '2023-08-24 02:10:05');
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
