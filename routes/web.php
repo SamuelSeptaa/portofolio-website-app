@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Index;
 use App\Models\Portofolio;
 use Illuminate\Support\Facades\Route;
 
@@ -14,7 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    $data['port'] = Portofolio::first();
-    return view('welcome', $data);
-});
+Route::get('/', [Index::class, 'index']);

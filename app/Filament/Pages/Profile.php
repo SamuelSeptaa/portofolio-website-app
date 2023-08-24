@@ -73,16 +73,16 @@ class Profile extends Page implements HasForms
                                     'italic',
                                     'strike',
                                 ])->columnSpan('full'),
-                            Forms\Components\TextInput::make('cv_url')->required()->columnSpan([
+                            Forms\Components\TextInput::make('cv_url')->columnSpan([
                                 'sm' => 2,
                                 'xl' => 3,
                                 '2xl' => 4,
                             ]),
                             Forms\Components\FileUpload::make('image')->image()->maxSize(2048)->required()->imageResizeMode('cover')
                                 ->preserveFilenames()
-                                ->imageCropAspectRatio('16:9')
-                                ->imageResizeTargetWidth('1920')
-                                ->imageResizeTargetHeight('1080')->columnSpan([
+                                ->imageCropAspectRatio('3:4')
+                                ->imageResizeTargetWidth('720')
+                                ->imageResizeTargetHeight('1280')->columnSpan([
                                     'sm' => 2,
                                     'xl' => 3,
                                     '2xl' => 4,

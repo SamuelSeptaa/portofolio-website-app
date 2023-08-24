@@ -17,10 +17,10 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->foreignId("user_id");
             $table->string("email");
-            $table->string("image");
+            $table->string("image")->nullable();
             $table->string("phone");
             $table->text("description");
-            $table->text("cv_url");
+            $table->text("cv_url")->nullable();
             $table->timestamps();
         });
     }
