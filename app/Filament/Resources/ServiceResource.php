@@ -35,7 +35,7 @@ class ServiceResource extends Resource
                         Forms\Components\Repeater::make('benefits')
                             ->relationship()
                             ->schema([
-                                Forms\Components\TextInput::make('benefit')->regex('/^[a-zA-Z0-9\s]+$/')->required(),
+                                Forms\Components\TextInput::make('benefit')->regex('/^[a-zA-Z0-9()\s]+$/')->required(),
                             ])
                     ]),
             ]);
