@@ -29,7 +29,7 @@
             </h1>
             <p class="header-subtitle">WEB DEVELOPER</p>
 
-            <a class="btn btn-primary" href="#portfolio">Visit My Works</a>
+            <a class="btn btn-primary" href="{{ route('home') }}#portfolio">Visit My Works</a>
         </div>
     </header><!-- end of page header -->
 
@@ -76,6 +76,9 @@
                 items: 1
             },
             480: {
+                items: 1
+            },
+            768: {
                 items: 2
             },
         }

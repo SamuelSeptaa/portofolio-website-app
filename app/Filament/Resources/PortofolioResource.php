@@ -17,6 +17,8 @@ use Filament\Forms\Components\Card;
 use Filament\Forms\Components\Grid;
 use Filament\Forms\Components\FileUpload;
 use Filament\Tables\Filters\Filter;
+use Illuminate\Support\Str;
+use Closure;
 
 class PortofolioResource extends Resource
 {
@@ -32,8 +34,13 @@ class PortofolioResource extends Resource
                     ->schema([
                         Grid::make(2)
                             ->schema([
-                                Forms\Components\TextInput::make('title')->regex('/^[a-zA-Z\s]+$/')->maxLength(255)->required(),
-                                Forms\Components\TextInput::make('url')->activeUrl()->nullable(),
+                                Forms\Components\TextInput::make('title')
+                                    // ->regex('/^[a-zA-Z\s]+$/')->maxLength(255)->required()
+                                    ->reactive()
+                                    ->afterStateUpdated(function (Closure $set, $state) {
+                                        $set('slug', Str::slug($state));
+                                    }),
+                                Forms\Components\TextInput::make('slug'),
                             ]),
                         Forms\Components\Textarea::make('short_body')->required(),
                         Forms\Components\RichEditor::make('description')->required()->disableAllToolbarButtons()

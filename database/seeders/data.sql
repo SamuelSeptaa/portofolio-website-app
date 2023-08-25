@@ -44,8 +44,8 @@ DELETE FROM `personal_access_tokens`;
 
 -- Dumping data for table portofolio.portofolios: ~1 rows (approximately)
 DELETE FROM `portofolios`;
-INSERT INTO `portofolios` (`id`, `title`, `short_body`, `description`, `url`, `start_date`, `end_date`, `thumbnail_url`, `created_at`, `updated_at`) VALUES
-	(1, 'Community Service Performance Evaluation System', 'Community Service Performance Evaluation System', '<p>Community Service Performance Evaluation System</p>', NULL, '2021-09-02', '2021-12-08', 'Screenshot (1).png', '2023-08-24 00:38:04', '2023-08-24 00:38:04');
+INSERT INTO `portofolios` (`id`, `title`, `short_body`, `description`, `slug`, `start_date`, `end_date`, `thumbnail_url`, `created_at`, `updated_at`) VALUES
+	(1, 'Community Service Performance Evaluation System', 'Community Service Performance Evaluation System', '<p>Community Service Performance Evaluation System</p>', '', '2021-09-02', '2021-12-08', 'Screenshot (1).png', '2023-08-24 00:38:04', '2023-08-24 00:38:04');
 
 -- Dumping data for table portofolio.profiles: ~1 rows (approximately)
 DELETE FROM `profiles`;

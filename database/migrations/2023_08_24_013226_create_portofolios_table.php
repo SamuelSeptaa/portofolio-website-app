@@ -18,7 +18,7 @@ class CreatePortofoliosTable extends Migration
             $table->string("title");
             $table->string("short_body");
             $table->text("description");
-            $table->string("url")->nullable();
+            $table->string("slug");
             $table->date("start_date")->nullable();
             $table->date("end_date")->nullable();
             $table->text("thumbnail_url");

@@ -27,7 +27,7 @@
     <!-- service section -->
     <section class="section" id="service">
         <div class="container text-center">
-            <p class="section-subtitle">What I Do ?</p>
+            <p class="section-subtitle">What do You need?</p>
             <h6 class="section-title mb-6">Service</h6>
             <div class="pricing-wrapper">
                 @foreach ($services as $s)
@@ -61,51 +61,11 @@
         <div class="container text-center">
             <p class="section-subtitle">What I Did ?</p>
             <h6 class="section-title mb-6">Portfolio</h6>
-            {{-- <!-- row -->
-            <div class="row">
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img src="{{ asset('meyawo') }}/imgs/folio-1.jpg" class="portfolio-card-img" alt="Sam-IT-Services">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img class="portfolio-card-img" src="{{ asset('meyawo') }}/imgs/folio-2.jpg"
-                            class="img-responsive rounded"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-                <div class="col-md-4">
-                    <a href="#" class="portfolio-card">
-                        <img class="portfolio-card-img" src="{{ asset('meyawo') }}/imgs/folio-3.jpg"
-                            class="img-responsive rounded"
-                            alt="Download free bootstrap 4 landing page, free boootstrap 4 templates, Download free bootstrap 4.1 landing page, free boootstrap 4.1.1 templates, meyawo Landing page">
-                        <span class="portfolio-card-overlay">
-                            <span class="portfolio-card-caption">
-                                <h4>Web Designing</h5>
-                                    <p class="font-weight-normal">Category: Web Templates</p>
-                            </span>
-                        </span>
-                    </a>
-                </div>
-            </div><!-- end of row --> --}}
             <div class="row">
                 <div class="owl-carousel owl-theme portofolio-slider">
                     @foreach ($portofolios as $p)
                         <div class="item">
-                            <a href="#" class="portfolio-card">
+                            <a href="{{ route('portofolio-detail', ['slug' => $p->slug]) }}#detail" class="portfolio-card">
                                 <img src="{{ asset('storage/' . $p->thumbnail_url) }}" class="portfolio-card-img"
                                     alt="Sam-IT-Services">
                                 <span class="portfolio-card-overlay">
@@ -146,22 +106,18 @@
             <p class="section-subtitle">How can you communicate?</p>
             <h6 class="section-title mb-5">Contact Me</h6>
             <!-- contact form -->
-            <form action="" class="contact-form col-md-10 col-lg-8 m-auto">
-                <div class="form-row">
-                    <div class="form-group col-sm-6">
-                        <input type="text" size="50" class="form-control" placeholder="Your Name" required>
+            <div class="contact-form col-md-10 col-lg-8 m-auto">
+                <div class="row justify-content-between">
+                    <div class="col-sm-6">
+                        <a href="mailto:{{ $profile->profile->email }}" class="btn btn-primary rounded"><i
+                                class="ti-email pr-1"></i> Email</a>
                     </div>
-                    <div class="form-group col-sm-6">
-                        <input type="email" class="form-control" placeholder="Enter Email" requried>
-                    </div>
-                    <div class="form-group col-sm-12">
-                        <textarea name="comment" id="comment" rows="6" class="form-control" placeholder="Write Something"></textarea>
-                    </div>
-                    <div class="form-group col-sm-12 mt-3">
-                        <input type="submit" value="Send Message" class="btn btn-outline-primary rounded">
+                    <div class="col-sm-6">
+                        <a href="{{ generateWhatsAppMe($profile->profile->phone) }}" class="btn btn-success rounded"><i
+                                class="ti-mobile pr-1"></i> WhatsApp</a>
                     </div>
                 </div>
-            </form><!-- end of contact form -->
+            </div>
         </div><!-- end of container -->
     </section><!-- end of contact section -->
 @endsection
