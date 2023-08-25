@@ -13,7 +13,7 @@ class Index extends Controller
 
     public function __construct()
     {
-        $this->data['profile']      = User::with('profile')->where('id', 1)->firstOrFail();
+        $this->data['profile']      = User::with('profile')->where('id', 1)->first();
     }
 
     public function index()

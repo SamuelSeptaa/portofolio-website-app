@@ -6,20 +6,26 @@
         <div class="container text-center">
             <!-- about wrapper -->
             <div class="about">
-                <div class="about-img-holder">
-                    <img src="{{ $profile->profile->image ? asset('storage/' . $profile->profile->image) : asset('meyawo/imgs/man.png') }}"
-                        class="about-img" alt="Sam-IT-Services">
-                </div>
-                <div class="about-caption">
-                    <p class="section-subtitle">Who Am I ?</p>
-                    <h2 class="section-title mb-3">About Me</h2>
-                    <div class="description">
-                        {!! $profile->profile->description !!}
+                @if ($profile)
+                    <div class="about-img-holder">
+                        @if ($profile->profile)
+                            <img src="{{ $profile->profile->image ? asset('storage/' . $profile->profile->image) : asset('meyawo/imgs/man.png') }}"
+                                class="about-img" alt="Sam-IT-Services">
+                        @endif
                     </div>
-                    @if ($profile->profile->cv_url)
-                        <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
-                    @endif
-                </div>
+                    <div class="about-caption">
+                        <p class="section-subtitle">Who Am I ?</p>
+                        <h2 class="section-title mb-3">About Me</h2>
+                        @if ($profile->profile)
+                            <div class="description">
+                                {!! $profile->profile->description !!}
+                            </div>
+                            @if ($profile->profile->cv_url)
+                                <button class="btn-rounded btn btn-outline-primary mt-4">Download CV</button>
+                            @endif
+                        @endif
+                    </div>
+                @endif
             </div><!-- end of about wrapper -->
         </div><!-- end of container -->
     </section> <!-- end of about section -->
@@ -47,8 +53,12 @@
                         <div class="pricing-card-footer">
                             <span>{{ currencyIDR($s->price_start) . ' sd ' . currencyIDR($s->price_end) }}</span>
                         </div>
-                        <a href="{{ generateWhatsAppMe($profile->profile->phone) }}"
-                            class="btn btn-primary mt-3 pricing-card-btn">Contact Me</a>
+                        @if ($profile)
+                            @if ($profile->profile->phone)
+                                <a href="{{ generateWhatsAppMe($profile->profile->phone) }}"
+                                    class="btn btn-primary mt-3 pricing-card-btn">Contact Me</a>
+                            @endif
+                        @endif
                     </div>
                 @endforeach
 
@@ -93,8 +103,12 @@
                     <p class="m-0 text-light">Always feel Free to Contact me</p>
                 </div>
                 <div class="col-sm offset-sm-2 offset-md-3">
-                    <a href="{{ generateWhatsAppMe($profile->profile->phone) }}"
-                        class="btn btn-lg my-font btn-light rounded">Contact Me</a>
+                    @if ($profile)
+                        @if ($profile->profile->phone)
+                            <a href="{{ generateWhatsAppMe($profile->profile->phone) }}"
+                                class="btn btn-lg my-font btn-light rounded">Contact Me</a>
+                        @endif
+                    @endif
                 </div>
             </div> <!-- end of row -->
         </div> <!-- end of container -->
@@ -108,14 +122,20 @@
             <!-- contact form -->
             <div class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="row justify-content-between">
-                    <div class="col-sm-6">
-                        <a href="mailto:{{ $profile->profile->email }}" class="btn btn-primary rounded"><i
-                                class="ti-email pr-1"></i> Email</a>
-                    </div>
-                    <div class="col-sm-6">
-                        <a href="{{ generateWhatsAppMe($profile->profile->phone) }}" class="btn btn-success rounded"><i
-                                class="ti-mobile pr-1"></i> WhatsApp</a>
-                    </div>
+                    @if ($profile)
+                        <div class="col-sm-6">
+                            @if ($profile->profile->email)
+                                <a href="mailto:{{ $profile->profile->email }}" class="btn btn-primary rounded"><i
+                                        class="ti-email pr-1"></i> Email</a>
+                            @endif
+                        </div>
+                        <div class="col-sm-6">
+                            @if ($profile->profile->phone)
+                                <a href="{{ generateWhatsAppMe($profile->profile->phone) }}"
+                                    class="btn btn-success rounded"><i class="ti-mobile pr-1"></i> WhatsApp</a>
+                            @endif
+                        </div>
+                    @endif
                 </div>
             </div>
         </div><!-- end of container -->

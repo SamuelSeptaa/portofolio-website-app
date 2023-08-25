@@ -25,6 +25,7 @@ class Profile extends Page implements HasForms
     public $description = "";
     public $contact_email = "";
     public $cv_url = "";
+    public $role = "";
     public $image = "";
     public $phone = "";
     public $password = "";
@@ -38,6 +39,7 @@ class Profile extends Page implements HasForms
             'email' => $user->email,
             'description' => ($user->profile) ? $user->profile->description : "",
             'cv_url' => ($user->profile) ? $user->profile->cv_url : "",
+            'role' => ($user->profile) ? $user->profile->role : "",
             'image' => ($user->profile) ? $user->profile->image : "",
             'contact_email' => ($user->profile) ? $user->profile->email : "",
             'phone' => ($user->profile) ? $user->profile->phone : "",
@@ -78,6 +80,11 @@ class Profile extends Page implements HasForms
                                 'xl' => 3,
                                 '2xl' => 4,
                             ]),
+                            Forms\Components\TextInput::make('role')->columnSpan([
+                                'sm' => 2,
+                                'xl' => 3,
+                                '2xl' => 4,
+                            ])->required(),
                             Forms\Components\FileUpload::make('image')->image()->maxSize(2048)->required()->imageResizeMode('cover')
                                 ->preserveFilenames()
                                 ->imageCropAspectRatio('3:4')
@@ -135,6 +142,7 @@ class Profile extends Page implements HasForms
                 'user_id' => auth()->user()->id,
                 'email'     => $this->email,
                 'phone'     => $this->phone,
+                'role'     => $this->role,
                 'cv_url'     => $this->cv_url,
                 'image'     => $this->form->getState()['image'],
                 'description'     => $this->description,

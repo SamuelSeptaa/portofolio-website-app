@@ -19,6 +19,7 @@ class CreateProfilesTable extends Migration
             $table->string("email");
             $table->string("image")->nullable();
             $table->string("phone");
+            $table->string("role");
             $table->text("description");
             $table->text("cv_url")->nullable();
             $table->timestamps();
