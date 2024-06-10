@@ -103,7 +103,7 @@
                     <p class="m-0 text-light">Always feel Free to Contact me</p>
                 </div>
                 <div class="col-sm offset-sm-2 offset-md-3">
-                    @if ($profile)
+                    @if ($profile->profile)
                         @if ($profile->profile->phone)
                             <a href="{{ generateWhatsAppMe($profile->profile->phone) }}"
                                 class="btn btn-lg my-font btn-light rounded">Contact Me</a>
@@ -122,7 +122,7 @@
             <!-- contact form -->
             <div class="contact-form col-md-10 col-lg-8 m-auto">
                 <div class="row justify-content-between">
-                    @if ($profile)
+                    @if ($profile->profile)
                         <div class="col-sm-6">
                             @if ($profile->profile->email)
                                 <a href="mailto:{{ $profile->profile->email }}" class="btn btn-primary rounded"><i

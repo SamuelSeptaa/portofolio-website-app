@@ -27,7 +27,7 @@
                 <span class="up">HI!</span>
                 <span class="down">I am {{ $profile ? $profile->name : '' }}</span>
             </h1>
-            <p class="header-subtitle">{{ $profile ? $profile->profile->role : '' }}</p>
+            <p class="header-subtitle">{{ $profile->profile ? $profile->profile->role : '' }}</p>
 
             <a class="btn btn-primary" href="{{ route('home') }}#portfolio">Visit My Works</a>
         </div>
